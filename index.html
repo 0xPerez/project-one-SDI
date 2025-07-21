@@ -27,8 +27,13 @@
 </header>
 
 <body>
+  <!-- background music -->
+
+
   <div id="game area">
-    <div id="dealear space">
+
+    <!-- DEALER'S HAND -->
+    <div id="dealear area">
       <pre>
 ▄ ▄▖▄▖▖ ▄▖▄▖
 ▌▌▙▖▌▌▌ ▙▖▙▘
@@ -38,33 +43,49 @@
       <p>DEALER SCORE: <span id="dealer score">0</span></p>
     </div>
 
-    <div id="player space">
+    <!-- PLAYERS HAND -->
+    <div id="player area">
       <pre>
 ▄▖▖ ▄▖▖▖▄▖▄▖
 ▙▌▌ ▌▌▌▌▙▖▙▘
 ▌ ▙▖▛▌▐ ▙▖▌▌
     </pre>
       <p>PLAYER SCORE: <span id="player score">0</span></p>
+      <div id="player hand" class="hand"</div>
 
       <!-- audio for buttons -->
-      <audio id="blipSelect" src="blipSelect.wav" preload="auto"></audio>
+      <audio id="newGame" src="audio/newGame.wav" preload="auto"></audio>
+      <audio id="blipSelect" src="audio/hit.wav" preload="auto"></audio>
+      <audio id="stand" src="audio/Stand.wav" preload="auto"></audio>
 
       <!-- button group -->
       <div id="button group">
+
         <!-- player buttons go here -->
-        <button onclick="playSound()">NEW GAME</button>
-        <button onclick="playSound()">HIT</button>
-        <button onclick="playSound()">STAND</button>
+        <button onclick="playNewGame()">NEW GAME</button>
+        <button onclick="playHit()">HIT</button>
+        <button onclick="playStand()">STAND</button>
       </div>
 
       <!-- script for playsound -->
       <script>
-        function playSound() {
+        function playNewGame() {
+          const audio = document.getElementById('newGame');
+          audio.currentTime = 0;
+          audio.play();
+        }
+        function playHit() {
           const audio = document.getElementById('blipSelect');
           audio.currentTime = 0;
           audio.play();
         }
+        function playStand() {
+          const audio = document.getElementById('stand');
+          audio.currentTime = 0;
+          audio.play();
+        }
       </script>
+
 </body>
 
 </html>
