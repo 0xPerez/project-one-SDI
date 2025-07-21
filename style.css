@@ -1,5 +1,5 @@
 body {
-      font-family: monospace;
+      font-family: 'Courier New', Courier, monospace;
       background-color: black;
       color: green;
       text-align: center;
@@ -15,3 +15,18 @@ body {
       font-weight: bold;
       color: green;
     }
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: green;
+  border: 2px solid green;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* font-size: 16px; */
+  box-shadow: none;
+}
+button:hover {
+  background-color: green;
+  color: black;
+}
