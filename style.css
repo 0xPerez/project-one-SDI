@@ -1,32 +1,32 @@
 body {
       font-family: 'Courier New', Courier, monospace;
       background-color: black;
-      color: green;
+      color: darkcyan;
       text-align: center;
       padding: 20px;
     }
 
     pre {
-      color: green;
+      color: cyan;
 
     }
 
     ln {
       font-weight: bold;
-      color: green;
+      color: cyan;
     }
 
 button {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
-  color: green;
-  border: 2px solid green;
+  color: cyan;
+  border: 2px solid cyan;
   padding: 10px 20px;
   cursor: pointer;
   /* font-size: 16px; */
   box-shadow: none;
 }
 button:hover {
-  background-color: green;
-  color: black;
+  background-color: maroon;
+  color: cyan;
 }
