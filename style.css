@@ -30,3 +30,7 @@ button:hover {
   background-color: maroon;
   color: cyan;
 }
+
+#audio {
+  display: none;;
+}

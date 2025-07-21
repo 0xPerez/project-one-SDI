@@ -45,33 +45,26 @@
 ▌ ▙▖▛▌▐ ▙▖▌▌
     </pre>
       <p>PLAYER SCORE: <span id="player score">0</span></p>
+
+      <!-- audio for buttons -->
+      <audio id="blipSelect" src="blipSelect.wav" preload="auto"></audio>
+
+      <!-- button group -->
       <div id="button group">
         <!-- player buttons go here -->
-        <button name="New Game">NEW GAME
-          <!-- <pre>
-.----------.
-| NEW GAME |
-'----------'
-      </pre> -->
-        </button>
-
-        <button name="Hit">HIT
-          <!-- <pre>
-.-----.
-| HIT |
-'-----'
-      </pre> -->
-        </button>
-
-        <button name="Stand">STAND
-          <!-- <pre>
-.-------.
-| STAND |
-'-------'
-      </pre> -->
-        </button>
+        <button onclick="playSound()">NEW GAME</button>
+        <button onclick="playSound()">HIT</button>
+        <button onclick="playSound()">STAND</button>
       </div>
 
+      <!-- script for playsound -->
+      <script>
+        function playSound() {
+          const audio = document.getElementById('blipSelect');
+          audio.currentTime = 0;
+          audio.play();
+        }
+      </script>
 </body>
 
 </html>
