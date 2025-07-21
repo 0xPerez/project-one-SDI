@@ -53,18 +53,20 @@
       <p>PLAYER SCORE: <span id="player score">0</span></p>
       <div id="player hand" class="hand"</div>
 
-      <!-- audio for buttons -->
+      <!-- audio  -->
       <audio id="newGame" src="audio/newGame.wav" preload="auto"></audio>
       <audio id="blipSelect" src="audio/hit.wav" preload="auto"></audio>
       <audio id="stand" src="audio/Stand.wav" preload="auto"></audio>
+      <audio id="bgMusic" src="audio/ChiptuneCasino.mp3" autoplay loop hidden onloadeddata="this.volume=0.2"></audio>
 
       <!-- button group -->
       <div id="button group">
-
         <!-- player buttons go here -->
         <button onclick="playNewGame()">NEW GAME</button>
         <button onclick="playHit()">HIT</button>
         <button onclick="playStand()">STAND</button>
+        <!-- BGM controls -->
+        <button onclick="toggleMusic()">MUSIC ON/OFF</button>
       </div>
 
       <!-- script for playsound -->
@@ -84,8 +86,16 @@
           audio.currentTime = 0;
           audio.play();
         }
+
+        // script for BGM toggle
+        const bgMusic = document.getElementById('bgMusic');
+        function toggleMusic() {
+          if (bgMusic.paused) {
+            bgMusic.play();
+          } else {
+            bgMusic.pause();
+          }
+        }
       </script>
 
 </body>
-
-</html>
