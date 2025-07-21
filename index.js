@@ -5,8 +5,11 @@
 // API should draw a card
 
 // TODO: Actual game rules and logic
+let deckID = '';
+let playerHand = [];
+let dealerHand = [];
 
-// New game: Get a new deck, draw two cards for player and dealer
+// TODO:
 // Draw one card face up, have one hidden
 // Should update ASCII UI
 
@@ -27,6 +30,18 @@
 // write a calculateScore(hand) function
 // deal with blackjack [21 with two cards]
 
-// how card ASCII using API responses
+// TODO: UI stuff
+// Show card ASCII using API responses
+function displayCard(hand, elementID){
+  const
+}
 // Dispaly player and dealer hands scores
-//
+// Disable/ enable buttons based on game state
+// Display winner
+
+// TODO: game states
+// track player and dealer hands
+// give you phrases like "You win!", "You lose!", "It's a tie!"
+// reset game state when done
+
+
