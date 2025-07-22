@@ -68,7 +68,7 @@
       </div>
 
 <!-- game result -->
-<p id="result"></p>
+<h1 id="result"></h1>
 
 <!-- script for linking UI and logic -->
 <script type="module">
@@ -127,7 +127,7 @@
       if (i < fullText.length) {
         pre.innerText += fullText[i] === '\n' ? '\n' : fullText[i]; // creates those sweet CRT lines
         i++;
-        const delay = fullText[i] == '\n' ? 10 : Math.random() * 20 + 1; // controls speed of blink
+        const delay = fullText[i] == '\n' ? 5 : Math.random() * 1 + 3; // controls speed of scroll
         setTimeout(typeNextChar, delay);
       }
     }
@@ -137,3 +137,8 @@
 </script>
 
 </body>
+
+<!-- <credits for assests -->
+<footer>
+<small>CREDITS// AUDIO/ DrPetter@sfxr.me// ASCII ART/ textfancy.com/ patorjk.com </small>
+</footer>

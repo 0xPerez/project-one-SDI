@@ -16,6 +16,13 @@ body {
       color: cyan;
     }
 
+h1 {
+  color: cyan;
+}
+.footer {
+  flex: 1;
+}
+
 button {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
