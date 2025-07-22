@@ -42,7 +42,6 @@ export async function stand() {
         checkWinner();
       }
     }
-
   }
 }
 
@@ -136,10 +135,3 @@ function renderAsciiHand(hand) {
 
   return finalLines.join('\n');
 }
-
-// // hopefully this works and runs
-// document.getElementById('playNewGame').addEventListener('click', startNewGame);
-// document.getElementById('playHit').addEventListener('click', hit);
-// document.getElementById('playStand').addEventListener('click', stand);
-
-// startNewGame();

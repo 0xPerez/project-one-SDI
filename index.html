@@ -72,33 +72,6 @@
 <!-- game result -->
 <p id="result"></p>
 
-<!-- script for playsound -->
-      <!-- <script>
-        function playNewGame() {
-          const audio = document.getElementById('newGame');
-          audio.currentTime = 0;
-          audio.play();
-        }
-        function playHit() {
-          const audio = document.getElementById('blipSelect');
-          audio.currentTime = 0;
-          audio.play();
-        }
-        function playStand() {
-          const audio = document.getElementById('stand');
-          audio.currentTime = 0;
-          audio.play();
-        }
-        const bgMusic = document.getElementById('bgMusic');
-        function toggleMusic() {
-          if (bgMusic.paused) {
-            bgMusic.play();
-          } else {
-            bgMusic.pause();
-          }
-        }
-      </script> -->
-
 <!-- script for linking UI and logic -->
 <script type="module">
   import {startNewGame, hit, stand} from './index.js';
@@ -133,5 +106,6 @@
   };
 
 </script>
+
 
 </body>

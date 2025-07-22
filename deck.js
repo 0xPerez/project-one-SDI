@@ -10,7 +10,7 @@ export async function createDeck() {
 }
 
 export async function drawCards(deckId, count = 1) {
-  const response = await fetch(`${apiURL}/deck/${deckId}/draw/?count=${count}`);
+  const response = await fetch(`${apiURL}/api/deck/${deckId}/draw/?count=${count}`);
   const data = await response.json();
   return data.cards;
 }
