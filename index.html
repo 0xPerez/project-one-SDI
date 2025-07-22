@@ -1,3 +1,8 @@
+<!-- FOR THE LOVE OF ALL THAT IS GOOD AND HOLY
+STOP FORGETTING TO PUT IN THE '-' IN YOUR
+IDs!! WE SPENT FOREVER TRYING TO FIGURE OUT
+WHY THIS KEPT FAILING AAAAAH  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,20 +32,17 @@
 </header>
 
 <body>
-  <!-- background music -->
-
-
-  <div id="game area">
+  <div id="game-area">
 
     <!-- DEALER'S HAND -->
-    <div id="dealear area">
+    <div id="dealear-area">
       <pre>
 ▄ ▄▖▄▖▖ ▄▖▄▖
 ▌▌▙▖▌▌▌ ▙▖▙▘
 ▙▘▙▖▛▌▙▖▙▖▌▌
       </pre>
       <div id="dealer cards"></div>
-      <p>DEALER SCORE: <span id="dealer score">0</span></p>
+      <p>DEALER SCORE: <span id="dealer-score">0</span></p>
     </div>
 
     <!-- PLAYERS HAND -->
@@ -50,7 +52,7 @@
 ▙▌▌ ▌▌▌▌▙▖▙▘
 ▌ ▙▖▛▌▐ ▙▖▌▌
     </pre>
-      <p>PLAYER SCORE: <span id="player score">0</span></p>
+      <p>PLAYER SCORE: <span id="player-score">0</span></p>
       <div id="player hand" class="hand"></div>
       <div id="player cards" class="cards"></div>
 
@@ -61,7 +63,7 @@
       <audio id="bgMusic" src="audio/ORU - Orange Dreamsicle [Chiptune Jazz].mp3" autoplay loop hidden onloadeddata="this.volume=0.1"></audio>
 
       <!-- button group -->
-      <div id="button group">
+      <div id="button-group">
         <!-- player buttons go here -->
         <button onclick="playNewGame()">NEW GAME</button>
         <button onclick="playHit()">HIT</button>
