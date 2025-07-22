@@ -74,3 +74,72 @@ function calculateScore(hand) {
   }
   return score;
 }
+
+// Check for bust logic
+function bustCheck() {
+  if (playerScore > 21) {
+    document.getElementById('result').innerText = 'BUST! YOU LOSE!'
+    gameOver = true;
+  }
+}
+
+// Check for win condition
+function checkWinner() {
+  if (dealerScore > 21) {
+    document.getElementById('result').innerText = 'DEALER BUST! YOU WIN!';
+  }else if (playerScore > 21) {
+    document.getElementById('result').innerText = 'BUST! YOU LOSE!'
+  } else if (dealerScore >= playerScore) {
+    document.getElementById('result').innerText = 'DEALER WINS!';
+  } else {
+    document.getElementById('result').innerText = 'YOU WIN!'
+  }
+}
+
+// Update UI logic
+function updateUI() {
+  const playerCardsPre = document.getElementById('player-cards');
+  const dealerCardsPre = document.getElementById('dealer-cards');
+  playerCardsPre.innerHTML = renderAsciiHand(playerHand);
+  dealerCardsPre.innerHTML = renderAsciiHand(dealerHand);
+  }
+
+// ASCII card template
+function getAsciiCard(card) {
+  const value = card.value.padEnd(2, ' ').slice(0, 2);
+  const suitSymbols = {
+    'HEARTS': '♥',
+    'DIAMONDS': '♦',
+    'CLUBS': '♣',
+    'SPADES': '♠'
+  };
+  const suit = suitSymbols[card.suit] || '?';
+
+  return [
+    '┌───────┐',
+    `|${value}     |`,
+    '|       |',
+    `|   ${suit}   |`,
+    '|       |',
+    `|     ${value}|`,
+    '└───────┘'
+  ];
+}
+// ASCII card "rendering"
+function renderAsciiHand(hand) {
+  const cardLines = hand.map(getAsciiCard);
+
+  const finalLines = [];
+  for (let i = 0; i < 7; i++) {
+    finalLines.push(cardLines.map(card => card[i]).join(' '));
+  }
+
+  return finalLines.join('\n');
+}
+
+// // hopefully this works and runs
+// document.getElementById('playNewGame').addEventListener('click', startNewGame);
+// document.getElementById('playHit').addEventListener('click', hit);
+// document.getElementById('playStand').addEventListener('click', stand);
+
+// startNewGame();

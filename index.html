@@ -1,8 +1,3 @@
-<!-- FOR THE LOVE OF ALL THAT IS GOOD AND HOLY
-STOP FORGETTING TO PUT IN THE '-' IN YOUR
-IDs!! WE SPENT FOREVER TRYING TO FIGURE OUT
-WHY THIS KEPT FAILING AAAAAH  -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,35 +29,37 @@ WHY THIS KEPT FAILING AAAAAH  -->
 <body>
   <div id="game-area">
 
-    <!-- DEALER'S HAND -->
-    <div id="dealear-area">
+<!-- DEALER'S HAND -->
+    <div id="dealer-area">
       <pre>
 ▄ ▄▖▄▖▖ ▄▖▄▖
 ▌▌▙▖▌▌▌ ▙▖▙▘
 ▙▘▙▖▛▌▙▖▙▖▌▌
       </pre>
-      <div id="dealer cards"></div>
       <p>DEALER SCORE: <span id="dealer-score">0</span></p>
+      <div id="dealer-hand" class="hand"></div>
+      <pre id="dealer-cards" class="cards"></pre>
     </div>
 
-    <!-- PLAYERS HAND -->
-    <div id="player area">
+<!-- PLAYERS HAND -->
+    <div id="player-area">
       <pre>
 ▄▖▖ ▄▖▖▖▄▖▄▖
 ▙▌▌ ▌▌▌▌▙▖▙▘
 ▌ ▙▖▛▌▐ ▙▖▌▌
-    </pre>
+      </pre>
       <p>PLAYER SCORE: <span id="player-score">0</span></p>
-      <div id="player hand" class="hand"></div>
-      <div id="player cards" class="cards"></div>
+      <div id="player-hand" class="hand"></div>
+      <pre id="player-cards" class="cards"></pre>
+    </div>
 
-      <!-- audio  -->
+<!-- audio  -->
       <audio id="newGame" src="audio/newGame.wav" preload="auto"></audio>
       <audio id="blipSelect" src="audio/hit.wav" preload="auto"></audio>
       <audio id="stand" src="audio/Stand.wav" preload="auto"></audio>
       <audio id="bgMusic" src="audio/ORU - Orange Dreamsicle [Chiptune Jazz].mp3" autoplay loop hidden onloadeddata="this.volume=0.1"></audio>
 
-      <!-- button group -->
+<!-- button group -->
       <div id="button-group">
         <!-- player buttons go here -->
         <button onclick="playNewGame()">NEW GAME</button>
@@ -72,8 +69,11 @@ WHY THIS KEPT FAILING AAAAAH  -->
         <button onclick="toggleMusic()">MUSIC ON/OFF</button>
       </div>
 
-      <!-- script for playsound -->
-      <script>
+<!-- game result -->
+<p id="result"></p>
+
+<!-- script for playsound -->
+      <!-- <script>
         function playNewGame() {
           const audio = document.getElementById('newGame');
           audio.currentTime = 0;
@@ -89,8 +89,6 @@ WHY THIS KEPT FAILING AAAAAH  -->
           audio.currentTime = 0;
           audio.play();
         }
-
-        // script for BGM toggle
         const bgMusic = document.getElementById('bgMusic');
         function toggleMusic() {
           if (bgMusic.paused) {
@@ -99,6 +97,41 @@ WHY THIS KEPT FAILING AAAAAH  -->
             bgMusic.pause();
           }
         }
-      </script>
+      </script> -->
+
+<!-- script for linking UI and logic -->
+<script type="module">
+  import {startNewGame, hit, stand} from './index.js';
+
+  function playNewGame() {
+    document.getElementById('newGame').play();
+    startNewGame();
+
+  }
+  function playHit() {
+    document.getElementById('blipSelect').play();
+    hit();
+
+  }
+  function playStand() {
+    document.getElementById('stand').play();
+    stand();
+  }
+  // globals for buttons
+  window.playNewGame = playNewGame;
+  window.playHit = playHit;
+  window.playStand = playStand;
+
+  // BGM toggle
+  const bgMusic = document.getElementById('bgMusic');
+  window.toggleMusic = function(){
+    if (bgMusic.paused) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
+  };
+
+</script>
 
 </body>
