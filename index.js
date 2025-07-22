@@ -8,6 +8,7 @@ let dealerHand = [];
 let playerScore = 0;
 let dealerScore = 0;
 let gameOver = false;
+let hideDealerHoleCard = true;
 
 // New Game logic
 export async function startNewGame() {
@@ -15,6 +16,7 @@ export async function startNewGame() {
   playerHand = await drawCards(deckID, 2); // Stores player hand
   dealerHand = await drawCards(deckID, 2); // Stores dealer hand
   gameOver = false; // Checks for gameover
+  hideDealerHoleCard = true; // hides dealer card
   updateScore(); // Updates Scores
   updateUI(); // Updates UI
   document.getElementById('result').innerText =''; // Spits out who wins
@@ -32,6 +34,7 @@ export async function hit() {
 // Stand logic
 export async function stand() {
   if (!gameOver) { // If we didn't get game over do this...
+    hideDealerHoleCard = false; // shows dealer hole card
     gameOver = true;
     while (dealerScore < 17) {
       const newCard = await drawCards(deckID, 1);
@@ -100,12 +103,12 @@ function updateUI() {
   const playerCardsPre = document.getElementById('player-cards');
   const dealerCardsPre = document.getElementById('dealer-cards');
   playerCardsPre.innerHTML = renderAsciiHand(playerHand);
-  dealerCardsPre.innerHTML = renderAsciiHand(dealerHand);
+  dealerCardsPre.innerHTML = renderAsciiHand(dealerHand, hideDealerHoleCard);
   }
 
 // ASCII card template
 function getAsciiCard(card) {
-  const value = card.value.padEnd(2, ' ').slice(0, 2);
+  const value = card.value.padEnd(2, ' ').slice(0, 1);
   const suitSymbols = {
     'HEARTS': '♥',
     'DIAMONDS': '♦',
@@ -116,17 +119,35 @@ function getAsciiCard(card) {
 
   return [
     '┌───────┐',
-    `|${value}     |`,
+    `|${value}      |`,
     '|       |',
     `|   ${suit}   |`,
     '|       |',
-    `|     ${value}|`,
+    `|     ${value} |`,
     '└───────┘'
   ];
 }
+// Face down card template
+function getFaceDownCard() {
+  return[
+    '┌───────┐',
+    '|░░░░░░░|',
+    '|░░░░░░░|',
+    '|░░░░░░░|',
+    '|░░░░░░░|',
+    '|░░░░░░░|',
+    '└───────┘'
+  ];
+}
+
 // ASCII card "rendering"
-function renderAsciiHand(hand) {
-  const cardLines = hand.map(getAsciiCard);
+function renderAsciiHand(hand, hideSecondCard = false) {
+  const cardLines = hand.map((card, index) => {
+    if (hideSecondCard && index === 1) {
+      return getFaceDownCard();
+    }
+    return getAsciiCard(card);
+  });
 
   const finalLines = [];
   for (let i = 0; i < 7; i++) {
